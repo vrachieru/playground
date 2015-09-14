@@ -42,4 +42,19 @@ public class HelloWorldService {
     	log.info("Calling getHelloMessageFallback @" + System.currentTimeMillis() + ".");
         return "Dang, sorry " + name + "! The command has timed out. Here, have a cookie.";
     }
+    
+    @HystrixCommand(fallbackMethod = "getScaryDependencyFallback")
+    public String getScaryDependency() {
+    	log.info("Calling getScaryString @" + System.currentTimeMillis() + ".");
+        if (System.currentTimeMillis() % 2 == 0) {
+            return "Scary content.";
+        } else {
+            throw new RuntimeException("Oh noes, the scary dependency got me!");
+        }
+    }
+
+    public String getScaryDependencyFallback() {
+    	log.info("Calling getScaryStringFallback @" + System.currentTimeMillis() + ".");
+        return "Oh dear God! The horror! The horror!";
+    }
 }

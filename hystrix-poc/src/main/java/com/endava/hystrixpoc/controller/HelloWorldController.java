@@ -18,4 +18,10 @@ public class HelloWorldController {
     public String helloWorld(@RequestParam(value="name", defaultValue="World") String name) {
         return this.helloWorldService.getHelloMessage(name);
     }
+    
+    @RequestMapping("/scary")
+    @ResponseBody
+    public String scaryDependency() {
+    	return this.helloWorldService.getScaryDependency();
+    }
 }

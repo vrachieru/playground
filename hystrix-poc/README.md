@@ -16,6 +16,7 @@ This project is a simple Proof Of Concept displaying the library's basic functio
 | Endpoint | Parameters | Fallbacks on
 | -------- | ---------- | ------------
 | /hello   | name       | Timeout (>5000ms)
+| /scary   | -          | RuntimeException
 
 ## Hystrix Dashboard
 
