@@ -22,7 +22,7 @@ public class RESTService {
     public String getHelloMessage(String name) {
     	int delay = getRandomDelay();
     	
-        log.info("Calling getHelloMessage @" + System.currentTimeMillis() + " with " + delay + "ms delay.");
+        log.info("Calling getHelloMessage with " + delay + "ms delay.");
         
         try {
             Thread.sleep(delay);
@@ -39,13 +39,13 @@ public class RESTService {
     }
 
     public String getHelloMessageFallback(String name) {
-    	log.info("Calling getHelloMessageFallback @" + System.currentTimeMillis() + ".");
+    	log.info("Calling getHelloMessageFallback.");
         return "Dang, sorry " + name + "! The command has timed out. Here, have a cookie.";
     }
     
     @HystrixCommand(fallbackMethod = "getScaryDependencyFallback")
     public String getScaryDependency() {
-    	log.info("Calling getScaryString @" + System.currentTimeMillis() + ".");
+    	log.info("Calling getScaryString.");
         if (System.currentTimeMillis() % 2 == 0) {
             return "Scary content.";
         } else {
@@ -54,7 +54,7 @@ public class RESTService {
     }
 
     public String getScaryDependencyFallback() {
-    	log.info("Calling getScaryStringFallback @" + System.currentTimeMillis() + ".");
+    	log.info("Calling getScaryStringFallback.");
         return "Oh dear God! The horror! The horror!";
     }
 }
