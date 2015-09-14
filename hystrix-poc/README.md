@@ -1,4 +1,4 @@
-# About
+![Hystrix logo](https://netflix.github.com/Hystrix/images/hystrix-logo-tagline-850.png)
 
 [Hystrix](https://github.com/Netflix/Hystrix) is a latency and fault tolerance library designed to isolate points of access to remote systems, services and 3rd party libraries, stop cascading failure and enable resilience in complex distributed systems where failure is inevitable.
 
@@ -13,8 +13,8 @@ This project is a simple Proof Of Concept displaying the library's basic functio
 2. Execute `mvn spring-boot:run` to build the project and start the embedded server.
 3. Open a new tab in your browser pointing at one of the app's REST endpoints `http://localhost:8080/${restEndpoint}`.
 
-| Endpoint | Parameters | Fails on
-| -------- | ---------- | --------
+| Endpoint | Parameters | Fallbacks on
+| -------- | ---------- | ------------
 | /hello   | name       | Timeout (>5000ms)
 
 ## Hystrix Dashboard
