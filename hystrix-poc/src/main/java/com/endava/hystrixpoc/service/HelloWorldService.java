@@ -1,27 +1,45 @@
 package com.endava.hystrixpoc.service;
 
+import java.util.Random;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Component
 public class HelloWorldService {
     private static final Logger log = LoggerFactory.getLogger(HelloWorldService.class);
 
+    @HystrixCommand(
+    		fallbackMethod = "getHelloMessageFallback",
+    		commandProperties = {
+    				@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
+            }
+    )
     public String getHelloMessage(String name) {
-        log.info("Calling getHelloMessage @" + System.currentTimeMillis());
+    	int delay = getRandomDelay();
+    	
+        log.info("Calling getHelloMessage @" + System.currentTimeMillis() + " with " + delay + "ms delay.");
         
         try {
-            Thread.sleep(10000);
+            Thread.sleep(delay);
         } catch (InterruptedException e) {
-
+        	// oops
         }
         
         return "Hello " + name + "!";
     }
+    
+    private int getRandomDelay() {
+    	Random random = new Random();
+    	return random.nextInt(9000) + 1000;
+    }
 
     public String getHelloMessageFallback(String name) {
-    	log.info("Calling getHelloMessageFallback @" + System.currentTimeMillis());
-        return "Hello " + name + " Fallback!" + System.currentTimeMillis();
+    	log.info("Calling getHelloMessageFallback @" + System.currentTimeMillis() + ".");
+        return "Dang, sorry " + name + "! The command has timed out. Here, have a cookie.";
     }
 }
