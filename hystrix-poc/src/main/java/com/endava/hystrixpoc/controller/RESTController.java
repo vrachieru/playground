@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.endava.hystrixpoc.service.HelloWorldService;
+import com.endava.hystrixpoc.service.RESTService;
 
 @RestController
-public class HelloWorldController {
+public class RESTController {
 	@Autowired
-    private HelloWorldService helloWorldService;
+    private RESTService restService;
 
     @RequestMapping("/hello")
     @ResponseBody
     public String helloWorld(@RequestParam(value="name", defaultValue="World") String name) {
-        return this.helloWorldService.getHelloMessage(name);
+        return this.restService.getHelloMessage(name);
     }
     
     @RequestMapping("/scary")
     @ResponseBody
     public String scaryDependency() {
-    	return this.helloWorldService.getScaryDependency();
+    	return this.restService.getScaryDependency();
     }
 }

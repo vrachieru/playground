@@ -10,8 +10,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Component
-public class HelloWorldService {
-    private static final Logger log = LoggerFactory.getLogger(HelloWorldService.class);
+public class RESTService {
+    private static final Logger log = LoggerFactory.getLogger(RESTService.class);
 
     @HystrixCommand(
     		fallbackMethod = "getHelloMessageFallback",
