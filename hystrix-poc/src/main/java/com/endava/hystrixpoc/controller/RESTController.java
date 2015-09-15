@@ -24,4 +24,10 @@ public class RESTController {
     public String scaryDependency() {
     	return this.restService.getScaryDependency();
     }
+    
+    @RequestMapping("loop")
+    @ResponseBody
+    public String loop(){
+    	return this.restService.getLoop();
+    }
 }
