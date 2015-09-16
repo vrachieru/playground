@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.endava.hystrix.poc.model.Employee;
 import com.endava.hystrixpoc.service.EmployeeService;
 
-import javassist.NotFoundException;
-
 @RestController
 public class EmployeeController {
 	
@@ -19,7 +17,7 @@ public class EmployeeController {
 
 	@RequestMapping("/getEmployeeById")
 	@ResponseBody
-	public Employee getEmployee(@RequestParam(value = "id") int id) throws NotFoundException {
+	public Employee getEmployee(@RequestParam(value = "id") int id)  {
 		return employeeService.getEmployeeById(id);
 
 	}
