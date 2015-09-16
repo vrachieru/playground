@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 
 import com.endava.hystrix.poc.model.Employee;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.command.ObservableResult;
-
-import rx.Observable;
 
 @Component
 public class EmployeeService {
