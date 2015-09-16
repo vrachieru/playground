@@ -6,11 +6,9 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.endava.hystrix.poc.model.Employee;
-import com.google.common.base.Optional;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.command.ObservableResult;
 
-import javassist.NotFoundException;
 import rx.Observable;
 
 @Component
