@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.endava.hystrix.poc.model.Employee;
+import com.endava.hystrixpoc.model.Employee;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Component

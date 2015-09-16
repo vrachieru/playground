@@ -1,8 +1,6 @@
-package com.endava.hystrix.poc.model;
-
+package com.endava.hystrixpoc.model;
 
 public class Employee {
-
 	private String firstName;
 	private String lastName;
 	private Double salary;
@@ -19,7 +17,6 @@ public class Employee {
 		this.setId(id);
 		this.setPosition(position);
 	}
-
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
@@ -96,5 +93,4 @@ public class Employee {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 }
