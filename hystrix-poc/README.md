@@ -13,10 +13,13 @@ This project is a simple Proof Of Concept displaying the library's basic functio
 2. Execute `mvn spring-boot:run` to build the project and start the embedded server.
 3. Open a new tab in your browser pointing at one of the app's REST endpoints `http://localhost:8080/${restEndpoint}`.
 
-| Endpoint | Parameters | Fallbacks on
-| -------- | ---------- | ------------
-| /hello   | name       | Timeout (>5000ms)
-| /scary   | -          | RuntimeException
+| Endpoint         | Parameters    | Fallbacks on
+| ---------------- | ------------- | ------------
+| /hello           | name          | Timeout (>5000ms)
+| /scary           | -             | RuntimeException
+| /sum             | first, second | Timeout (>30000ms), Concurrent requests(>30)
+| /substract       | first, second | [Defaults](../../../../cheatsheet/blob/master/database/code/hystrix)
+| /getEmployeeById | id            | [Defaults](../../../../cheatsheet/blob/master/database/code/hystrix)
 
 ## Hystrix Dashboard
 
